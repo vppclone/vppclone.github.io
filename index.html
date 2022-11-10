@@ -2,6 +2,66 @@
 <html>
   <head>
     <title>2 face guys copypasta</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      var words = [
+          "Tianna",
+          "I can still hear everything",
+          "I",
+          "really don't want to bother you",
+          "but can you please tell him",
+          "to be",
+          "courteous?",
+        ],
+        part,
+        i = 0,
+        offset = 0,
+        len = words.length,
+        forwards = true,
+        skip_count = 0,
+        skip_delay = 15,
+        speed = 70;
+      var wordflick = function () {
+        setInterval(function () {
+          if (forwards) {
+            if (offset >= words[i].length) {
+              ++skip_count;
+              if (skip_count == skip_delay) {
+                forwards = false;
+                skip_count = 0;
+              }
+            }
+          } else {
+            if (offset == 0) {
+              forwards = true;
+              i++;
+              offset = 0;
+              if (i >= len) {
+                i = 0;
+              }
+            }
+          }
+          part = words[i].substr(0, offset);
+          console.log(part);
+          if (skip_count == 0) {
+            if (forwards) {
+              offset++;
+            } else {
+              offset--;
+            }
+          }
+          const display =
+            i === words.length - 1
+              ? `<span class='quote--highlight'>${part}<span>`
+              : part;
+          $("#word").html(display);
+        }, speed);
+      };
+
+      $(document).ready(function () {
+        wordflick();
+      });
+    </script>
     <style>
       @import url(https://fonts.googleapis.com/css?family=EB+Garamond|Droid+Serif|Playfair+Display|Open+Sans+Condensed:300);
 
@@ -71,13 +131,7 @@
   </head>
   <body>
     <div class="quote--container">
-      <p class="quote">
-        Tianna, <span class="quote--highlight">I</span> can still hear
-        <span class="quote--highlight">everything</span>.
-        <span class="quote--highlight">I</span> really don't want to bother you
-        but can you <span class="quote--highlight">please</span> tell him to be
-        <span class="quote--highlight">courteous</span>?
-      </p>
+      <p class="quote" id="word"></p>
       <p class="quote--author">&ndash; Some migrant from 2004 (khát nước)</p>
     </div>
   </body>
