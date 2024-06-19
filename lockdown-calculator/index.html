@@ -20,24 +20,6 @@
         <script>
             "use strict";
 
-            function calculateLockout() {
-                // let totalLockout = 1.0;
-                // for (const checkbox of document.querySelectorAll(".action-checkbox")) {
-                //     if (checkbox.checked) {
-                //         const value = parseFloat(checkbox.value);
-                //         if (!isNaN(value)) {
-                //             totalLockout += value;
-                //         }
-                //     }
-                // }
-                // for (const dropdown of document.querySelectorAll(".action-dropdown")) {
-                //     const value = parseFloat(dropdown.value);
-                //     if (!isNaN(value)) {
-                //         totalLockout += value;
-                //     }
-                // }
-            }
-
             function updateDisplay() {
                 let totalLockout = 1;
                 const valueParser = (str) => {
@@ -121,27 +103,25 @@
                     </select>
                 </div>
                 <section class="nes-container">
-                    <section class="message-list">
-                        <section class="message -left">
-                            <i class="nes-phone"></i>
-                            <div class="nes-balloon from-left">
-                                <p>Hello Vpp</p>
-                                <p>With enemy action: <span id="enemy-action-display">No</span></p>
-                                <p>And charge attacks: <span id="charge-attacks-display">0</span></p>
-                                <p>And single attacks: <span id="single-attacks-display">0</span></p>
-                                <p>And double attacks: <span id="double-attacks-display">0</span></p>
-                                <p>And triple attacks: <span id="triple-attacks-display">0</span></p>
-                                <p>What is my lockout?</p>
-                            </div>
-                        </section>
+                    <div class="flex items-end mb-6">
+                        <i class="nes-phone"> </i>
+                        <div class="nes-balloon from-left">
+                            <p>Hello Vpp</p>
+                            <p>With enemy action: <span id="enemy-action-display">No</span></p>
+                            <p>And charge attacks: <span id="charge-attacks-display">0</span></p>
+                            <p>And single attacks: <span id="single-attacks-display">0</span></p>
+                            <p>And double attacks: <span id="double-attacks-display">0</span></p>
+                            <p>And triple attacks: <span id="triple-attacks-display">0</span></p>
+                            <p>What is my lockout?</p>
+                        </div>
+                    </div>
 
-                        <section class="message -right">
-                            <div class="nes-balloon from-right">
-                                <p>Your lockout is: <span id="total-display"></span> seconds</p>
-                            </div>
-                            <i class="nes-octocat animate"></i>
-                        </section>
-                    </section>
+                    <div class="flex items-end">
+                        <div class="nes-balloon from-right">
+                            <p>Your lockout is: <span id="total-display"></span> seconds</p>
+                        </div>
+                        <i class="nes-octocat animate"></i>
+                    </div>
                 </section>
             </section>
         </div>
