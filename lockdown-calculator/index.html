@@ -38,6 +38,22 @@
                 document.querySelector("span#total-display").innerHTML = totalLockout.toFixed(2);
             }
 
+            function toggleDarkMode() {
+                const isDarkMode = document.querySelector('input[name="dark-mode"]:checked').value;
+
+                const nesClass = ["nes-container", "nes-select", "nes-balloon", "nes-radio", "nes-checkbox"];
+
+                for (const nClass of nesClass) {
+                    for (const el of document.querySelectorAll(`.${nClass}`)) {
+                        if (isDarkMode === "false") {
+                            el.classList.remove("is-dark");
+                            continue;
+                        }
+                        el.classList.add("is-dark");
+                    }
+                }
+            }
+
             document.addEventListener("DOMContentLoaded", () => {
                 for (const checkbox of document.querySelectorAll(".action-checkbox")) {
                     checkbox.addEventListener("change", updateDisplay);
@@ -47,12 +63,31 @@
                     dropdown.addEventListener("change", updateDisplay);
                 }
 
+                for (const radio of document.querySelectorAll(".dark-mode")) {
+                    radio.addEventListener("change", toggleDarkMode);
+                }
+
                 updateDisplay();
             });
         </script>
     </head>
     <body class="flex flex-col justify-center items-center p-8">
         <div id="nescss">
+            <div class="mb-8">
+                <section class="nes-container with-title w-full flex flex-col">
+                    <h3 class="title">Dark mode ?</h3>
+                    <label>
+                        <input type="radio" value="true" class="nes-radio dark-mode" name="dark-mode" />
+                        <span>Yes</span>
+                    </label>
+
+                    <label>
+                        <input type="radio" value="false" class="nes-radio dark-mode" name="dark-mode" checked />
+                        <span>No</span>
+                    </label>
+                </section>
+            </div>
+
             <section class="nes-container with-title w-full flex flex-col">
                 <h3 class="title">Lockout Calculator</h3>
                 <div class="mb-2">
