@@ -19,6 +19,7 @@
         </style>
         <script>
             "use strict";
+            const key = "dark-mode-current";
 
             function updateDisplay() {
                 let totalLockout = 1;
@@ -52,6 +53,14 @@
                         el.classList.add("is-dark");
                     }
                 }
+                window.localStorage.setItem(key, isDarkMode);
+            }
+
+            function syncDarkModeWithStorage() {
+                const value = window.localStorage.getItem(key);
+                if (!value) return;
+                document.querySelector(`.dark-mode[value='${value}']`).checked = true;
+                toggleDarkMode();
             }
 
             document.addEventListener("DOMContentLoaded", () => {
@@ -68,6 +77,7 @@
                 }
 
                 updateDisplay();
+                syncDarkModeWithStorage();
             });
         </script>
     </head>
