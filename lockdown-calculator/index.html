@@ -42,7 +42,7 @@
             function toggleDarkMode() {
                 const isDarkMode = document.querySelector('input[name="dark-mode"]:checked').value;
 
-                const nesClass = ["nes-container", "nes-select", "nes-balloon", "nes-radio", "nes-checkbox"];
+                const nesClass = ["nes-container", "nes-select", "nes-balloon", "nes-radio", "nes-checkbox", "nes-body"];
 
                 for (const nClass of nesClass) {
                     for (const el of document.querySelectorAll(`.${nClass}`)) {
@@ -81,7 +81,7 @@
             });
         </script>
     </head>
-    <body class="flex flex-col justify-center items-center p-8">
+    <body class="flex flex-col justify-center items-center p-8 nes-body">
         <div id="nescss">
             <div class="mb-8">
                 <section class="nes-container with-title w-full flex flex-col">
