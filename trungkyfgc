@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function navigate() {
+        window.open("https://discord.gg/uhpz6vVew4", "_self")
+      }
+    </script>
+  </head>
+  <body onload="navigate()"></body>
+</html>
